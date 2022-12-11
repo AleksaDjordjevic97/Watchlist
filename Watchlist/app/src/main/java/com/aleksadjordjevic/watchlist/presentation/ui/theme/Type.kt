@@ -2,11 +2,16 @@ package com.aleksadjordjevic.watchlist.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.aleksadjordjevic.watchlist.R
 
-// Set of Material typography styles to start with
+val bebasNeueRegular = FontFamily(Font(R.font.bebas_neue_regular))
+val questrialRegular = FontFamily(Font(R.font.questrial_regular))
+
+
 val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
@@ -14,21 +19,29 @@ val Typography = Typography(
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
+    ),
     titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = bebasNeueRegular,
         fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+        fontSize = 65.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp,
+        color = homeHeadlineColor
     ),
     labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    )
-    */
+        fontFamily = questrialRegular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp,
+        color = trackedMovieLabelColor
+    ),
+    labelMedium = TextStyle(
+        fontFamily = questrialRegular,
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp,
+        color = trackableMovieLabelColor
+    ),
 )
