@@ -8,7 +8,7 @@ data class MovieDto(
     @field:Json(name = "titleText")
     val title: MovieTitleDto,
     @field:Json(name = "releaseYear")
-    val year: MovieYearDto,
+    val year: MovieYearDto?,
     @field:Json(name = "primaryImage")
-    val imageUrl: MovieImageDto
+    val imageUrl: MovieImageDto?
 )

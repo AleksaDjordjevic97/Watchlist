@@ -4,5 +4,5 @@ import com.squareup.moshi.Json
 
 data class MovieYearDto(
     @field:Json(name = "year")
-    val year:Int
+    val year:Int?
 )

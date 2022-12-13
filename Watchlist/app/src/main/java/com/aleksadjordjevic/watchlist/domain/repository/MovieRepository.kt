@@ -5,5 +5,5 @@ import com.aleksadjordjevic.watchlist.domain.util.Resource
 
 interface MovieRepository {
 
-    suspend fun searchForMovie(title:String): Resource<MovieData>
+    suspend fun searchForMovie(title:String): Result<List<MovieData>>
 }

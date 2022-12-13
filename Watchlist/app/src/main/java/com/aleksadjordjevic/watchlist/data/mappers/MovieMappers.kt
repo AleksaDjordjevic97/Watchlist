@@ -7,7 +7,7 @@ fun MovieDto.toMovieData(): MovieData{
     return MovieData(
         id = id,
         title = title.title,
-        year = year.year,
-        imageUrl = imageUrl.imageUrl
+        year = year?.year ?: -1,
+        imageUrl = imageUrl?.imageUrl ?: ""
     )
 }

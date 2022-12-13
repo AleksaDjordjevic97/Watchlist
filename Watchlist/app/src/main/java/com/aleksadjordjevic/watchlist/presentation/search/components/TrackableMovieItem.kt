@@ -17,11 +17,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
+import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import com.aleksadjordjevic.watchlist.R
 import com.aleksadjordjevic.watchlist.domain.movie.MovieData
 import com.aleksadjordjevic.watchlist.presentation.ui.theme.trackableMovieLabelColor
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun TrackableMovieItem(
     movie: MovieData,
@@ -38,8 +43,8 @@ fun TrackableMovieItem(
             )
             .background(MaterialTheme.colorScheme.surface)
     ) {
-        Image(
-            painter = rememberAsyncImagePainter(model = movie.imageUrl),
+        GlideImage(
+            model= movie.imageUrl,
             contentDescription = "Trackable_${movie.title}",
             modifier = Modifier
                 .fillMaxHeight()
