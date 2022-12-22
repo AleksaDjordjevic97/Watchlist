@@ -9,5 +9,5 @@ data class TrackedMovieEntity(
     val title:String,
     val year:Int,
     val imageUrl:String,
-    @PrimaryKey val id: Int? = null
+    @PrimaryKey(autoGenerate = true) val id: Int = 0
 )

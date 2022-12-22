@@ -1,8 +1,10 @@
 package com.aleksadjordjevic.watchlist.di
 
 import com.aleksadjordjevic.watchlist.domain.repository.MovieRepository
+import com.aleksadjordjevic.watchlist.domain.use_case.GetTrackedMovies
 import com.aleksadjordjevic.watchlist.domain.use_case.MovieUseCases
 import com.aleksadjordjevic.watchlist.domain.use_case.SearchMovie
+import com.aleksadjordjevic.watchlist.domain.use_case.TrackMovie
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +21,9 @@ object SearchModule {
         repository: MovieRepository
     ): MovieUseCases {
         return MovieUseCases(
-            searchMovie = SearchMovie(repository)
+            searchMovie = SearchMovie(repository),
+            trackMovie = TrackMovie(repository),
+            getTrackedMovies = GetTrackedMovies(repository)
         )
     }
 }

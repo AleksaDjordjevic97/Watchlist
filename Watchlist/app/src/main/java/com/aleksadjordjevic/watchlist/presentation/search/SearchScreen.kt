@@ -56,10 +56,10 @@ fun SearchScreen(
                 items(state.trackableMovies) { movie ->
                     TrackableMovieItem(
                         movie = movie,
-                        onTrack = {  },
+                        onTrack = { viewModel.onEvent(SearchEvent.OnTrackMovie(movie)) },
+                        isTracked = viewModel.isMovieTracked(movie),
                         modifier = Modifier
                             .height(100.dp)
-
                     )
                 }
             }
