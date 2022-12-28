@@ -35,7 +35,7 @@ fun SearchTextField(
     onSearch: () -> Unit,
     modifier: Modifier = Modifier,
     hint: String = stringResource(id = R.string.search_hint),
-    shouldShowHint: Boolean = false,
+    shouldShowHint: Boolean = true,
     onFocusChanged: (FocusState) -> Unit
 ) {
     Box(
@@ -75,7 +75,7 @@ fun SearchTextField(
                 color = Color.LightGray,
                 modifier = Modifier
                     .align(Alignment.CenterStart)
-                    .padding(start = 16.dp)
+                    .padding(start = 20.dp)
             )
         }
         IconButton(

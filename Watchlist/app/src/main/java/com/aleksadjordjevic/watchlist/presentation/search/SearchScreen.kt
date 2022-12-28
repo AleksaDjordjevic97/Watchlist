@@ -47,6 +47,7 @@ fun SearchScreen(
                 onSearch = {
                     keyboardController?.hide()
                     viewModel.onEvent(SearchEvent.onSearch) },
+                shouldShowHint = state.isHintVisible,
                 onFocusChanged = { viewModel.onEvent(SearchEvent.OnSearchFocusChange(it.isFocused)) }
             )
             Spacer(modifier = Modifier.height(30.dp))

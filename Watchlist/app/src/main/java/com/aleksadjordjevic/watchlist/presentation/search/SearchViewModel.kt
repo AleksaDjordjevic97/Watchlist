@@ -31,15 +31,18 @@ class SearchViewModel @Inject constructor(
     fun onEvent(event: SearchEvent) {
         when(event) {
             is SearchEvent.onQueryChange -> {
-                state = state.copy(query = event.query)
+                state = state.copy(
+                    query = event.query,
+                    isHintVisible = event.query.isBlank()
+                )
             }
             is SearchEvent.onSearch -> {
                 executeSearch()
             }
             is SearchEvent.OnSearchFocusChange -> {
-                state = state.copy(
-                    isHintVisible = !event.isFocused && state.query.isBlank()
-                )
+//                state = state.copy(
+//                    isHintVisible = !event.isFocused && state.query.isBlank()
+//                )
             }
             is SearchEvent.OnTrackMovie -> {
                 trackMovie(event)
@@ -53,7 +56,7 @@ class SearchViewModel @Inject constructor(
                 movieUseCases.removeTrackedMovie(event.movie)
             else
                 movieUseCases.trackMovie(event.movie)
-            
+
             refreshTrackedMovies()
         }
     }
@@ -81,8 +84,7 @@ class SearchViewModel @Inject constructor(
                 .onSuccess { movies ->
                     state = state.copy(
                         trackableMovies = movies,
-                        isSearching = false,
-                        query = ""
+                        isSearching = false
                     )
                 }
                 .onFailure {
