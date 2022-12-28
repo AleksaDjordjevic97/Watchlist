@@ -49,7 +49,11 @@ class SearchViewModel @Inject constructor(
 
     private fun trackMovie(event: SearchEvent.OnTrackMovie) {
         viewModelScope.launch {
-            movieUseCases.trackMovie(event.movie)
+            if(isMovieTracked(movie = event.movie))
+                movieUseCases.removeTrackedMovie(event.movie)
+            else
+                movieUseCases.trackMovie(event.movie)
+            
             refreshTrackedMovies()
         }
     }
