@@ -1,10 +1,7 @@
 package com.aleksadjordjevic.watchlist.di
 
 import com.aleksadjordjevic.watchlist.domain.repository.MovieRepository
-import com.aleksadjordjevic.watchlist.domain.use_case.GetTrackedMovies
-import com.aleksadjordjevic.watchlist.domain.use_case.MovieUseCases
-import com.aleksadjordjevic.watchlist.domain.use_case.SearchMovie
-import com.aleksadjordjevic.watchlist.domain.use_case.TrackMovie
+import com.aleksadjordjevic.watchlist.domain.use_case.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +20,8 @@ object SearchModule {
         return MovieUseCases(
             searchMovie = SearchMovie(repository),
             trackMovie = TrackMovie(repository),
-            getTrackedMovies = GetTrackedMovies(repository)
+            getTrackedMovies = GetTrackedMovies(repository),
+            removeTrackedMovie = RemoveTrackedMovie(repository)
         )
     }
 }

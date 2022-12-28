@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class TrackedMovieEntity(
+    @PrimaryKey(autoGenerate = false)
     val imdbId:String,
     val title:String,
     val year:Int,
     val imageUrl:String,
-    @PrimaryKey(autoGenerate = true) val id: Int = 0
 )

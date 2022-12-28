@@ -58,8 +58,8 @@ fun HomeScreen(
                     TrackedMovieCard(
                         imageUrl = trackedMovie.imageUrl,
                         title = trackedMovie.title,
-                        year = trackedMovie.year)
-
+                        year = trackedMovie.year,
+                        onRemoveBtnClick = {viewModel.onEvent(HomeEvent.OnRemoveTrackedMovie(trackedMovie))})
                 }
             }
         }

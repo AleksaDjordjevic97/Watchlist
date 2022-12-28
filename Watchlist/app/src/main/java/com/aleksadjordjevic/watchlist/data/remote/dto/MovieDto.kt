@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 
 data class MovieDto(
     @field:Json(name = "id")
-    val id: String,
+    val imdbId: String,
     @field:Json(name = "titleText")
     val title: MovieTitleDto,
     @field:Json(name = "releaseYear")

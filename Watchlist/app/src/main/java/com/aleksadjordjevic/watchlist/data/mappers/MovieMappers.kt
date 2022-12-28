@@ -6,7 +6,7 @@ import com.aleksadjordjevic.watchlist.domain.movie.MovieData
 
 fun MovieDto.toMovieData(): MovieData{
     return MovieData(
-        id = id,
+        imdbId = imdbId,
         title = title.title,
         year = year?.year ?: -1,
         imageUrl = imageUrl?.imageUrl ?: ""
@@ -15,7 +15,7 @@ fun MovieDto.toMovieData(): MovieData{
 
 fun MovieData.toTrackedMovieEntity(): TrackedMovieEntity{
     return TrackedMovieEntity(
-        imdbId = id,
+        imdbId = imdbId,
         title = title,
         year = year,
         imageUrl = imageUrl
@@ -24,7 +24,7 @@ fun MovieData.toTrackedMovieEntity(): TrackedMovieEntity{
 
 fun TrackedMovieEntity.toMovieData():MovieData {
     return MovieData(
-        id = imdbId,
+        imdbId = imdbId,
         title = title,
         year = year,
         imageUrl = imageUrl
