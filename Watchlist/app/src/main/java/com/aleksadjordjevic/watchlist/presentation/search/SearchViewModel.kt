@@ -39,11 +39,6 @@ class SearchViewModel @Inject constructor(
             is SearchEvent.onSearch -> {
                 executeSearch()
             }
-            is SearchEvent.OnSearchFocusChange -> {
-//                state = state.copy(
-//                    isHintVisible = !event.isFocused && state.query.isBlank()
-//                )
-            }
             is SearchEvent.OnTrackMovie -> {
                 trackMovie(event)
             }

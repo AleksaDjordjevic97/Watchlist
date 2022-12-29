@@ -8,14 +8,12 @@ class SearchMovie(
     private val repository:MovieRepository
 ) {
     suspend operator fun invoke(
-        query:String,
-        page:Int = 1,
-        pageSize:Int = 40
+        query:String
     ) :Result<List<MovieData>>{
-        if(query.isBlank()) {
-            return Result.success(emptyList())
+        return if(query.isBlank()) {
+            Result.success(emptyList())
         } else {
-            return repository.searchForMovie(query.trim())
+            repository.searchForMovie(query.trim())
         }
     }
 }

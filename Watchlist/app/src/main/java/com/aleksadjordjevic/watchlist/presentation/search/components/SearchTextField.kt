@@ -35,8 +35,7 @@ fun SearchTextField(
     onSearch: () -> Unit,
     modifier: Modifier = Modifier,
     hint: String = stringResource(id = R.string.search_hint),
-    shouldShowHint: Boolean = true,
-    onFocusChanged: (FocusState) -> Unit
+    shouldShowHint: Boolean = true
 ) {
     Box(
         modifier = modifier
@@ -65,7 +64,6 @@ fun SearchTextField(
                 .fillMaxWidth()
                 .padding(16.dp)
                 .padding(end = 16.dp)
-                .onFocusChanged { onFocusChanged(it) }
         )
         if(shouldShowHint) {
             Text(
